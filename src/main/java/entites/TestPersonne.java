@@ -1,16 +1,21 @@
 package entites;
 
+
 import entites2.Personne;
+import entites.AdressePostale;
 
 public class TestPersonne {
     public static void main(String[] args) {
-        AdressePostale adresse1 = new AdressePostale(10, "Rue du Bac", 75007, "Paris");
-        AdressePostale adresse2 = new AdressePostale(42, "Boulevard Haussmann", 75009, "Paris");
+        // Adresse
+        AdressePostale adresse1 = new AdressePostale(15, "Rue Lafayette", 31000, "Toulouse");
 
-        Personne personne1 = new Personne("Dupont", "Jean", adresse1);
-        Personne personne2 = new Personne("Durand", "Marie", adresse2);
+        // Utilisation du constructeur 1 (nom + prénom)
+        Personne p1 = new Personne("Martin", "Paul");
 
-        System.out.println(personne1.nom + " habite à " + personne1.adresse.ville);
-        System.out.println(personne2.nom + " habite à " + personne2.adresse.ville);
+        // Utilisation du constructeur 2 (nom + prénom + adresse)
+        Personne p2 = new Personne("Durand", "Claire", adresse1);
+
+        System.out.println(p1.nom); // Martin
+        System.out.println(p2.nom + " habite à " + p2.adresse.ville); // Claire habite à Toulouse
     }
 }
