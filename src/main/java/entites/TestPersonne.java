@@ -1,21 +1,28 @@
 package entites;
 
-
 import entites2.Personne;
-import entites.AdressePostale;
 
 public class TestPersonne {
     public static void main(String[] args) {
-        // Adresse
-        AdressePostale adresse1 = new AdressePostale(15, "Rue Lafayette", 31000, "Toulouse");
+        // Création d'une personne avec nom + prénom
+        Personne p1 = new Personne("Martin", "Lucie");
 
-        // Utilisation du constructeur 1 (nom + prénom)
-        Personne p1 = new Personne("Martin", "Paul");
+        // Utilisation d’un setter pour l’adresse
+        AdressePostale adresse1 = new AdressePostale(14, "Rue Nationale", 59000, "Lille");
+        p1.setAdresse(adresse1);
 
-        // Utilisation du constructeur 2 (nom + prénom + adresse)
-        Personne p2 = new Personne("Durand", "Claire", adresse1);
+        // Affichage du nom complet avec nom en majuscule
+        p1.afficherNomComplet();
 
-        System.out.println(p1.nom); // Martin
-        System.out.println(p2.nom + " habite à " + p2.adresse.ville); // Claire habite à Toulouse
+        // Test des getters
+        System.out.println("Nom : " + p1.getNom());
+        System.out.println("Prénom : " + p1.getPrenom());
+        System.out.println("Ville : " + p1.getAdresse().ville);
+
+        // Modification du nom et prénom
+        p1.setNom("Dupont");
+        p1.setPrenom("Camille");
+
+        p1.afficherNomComplet(); // DUPONT Camille
     }
 }
